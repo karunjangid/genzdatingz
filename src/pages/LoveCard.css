@@ -4,13 +4,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Allow the container to expand as needed */
+  min-height: 100vh; /* Ensure full viewport height */
+  height: auto;
   padding: 20px;
   position: relative; /* For layering */
   color: #fff; /* White text for readability */
   font-family: "Poppins", sans-serif;
   text-align: center;
-  overflow-y: auto; /* Enable scrolling on mobile devices */
+  overflow-y: auto; /* Enable scrolling for smaller devices */
+  box-sizing: border-box; /* Include padding and borders */
 }
 
 /* Background Video */
@@ -20,8 +22,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure video covers the entire container */
-  z-index: -1; /* Send it behind all other elements */
+  object-fit: cover; /* Ensure video covers the container */
+  z-index: 3; /* Send it behind all other elements */
   opacity: 0.7; /* Slight transparency for contrast */
 }
 
@@ -36,7 +38,7 @@
   background: url("https://cdn.pixabay.com/photo/2020/05/28/06/40/bokeh-5226630_1280.png") repeat;
   z-index: -2; /* Send particles behind the video */
   animation: float 20s infinite linear;
-  opacity: 0.3;
+  opacity: 0.3; /* Subtle appearance */
 }
 
 @keyframes float {
@@ -74,6 +76,7 @@ h1 {
 .love-card {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; /* Allow stacking for smaller devices */
   width: 90%;
   max-width: 900px;
   padding: 20px;
@@ -81,7 +84,7 @@ h1 {
   background: rgba(0, 0, 0, 0.7); /* Semi-transparent black for contrast */
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
   backdrop-filter: blur(10px); /* Add subtle blur effect */
-  z-index: 1;
+  z-index: 1; /* Keeps it above the video */
 }
 
 /* User and Match Details */
@@ -132,12 +135,12 @@ p strong {
   }
 
   .love-card {
-    flex-wrap: wrap; /* Allow elements to stack if space runs out */
+    flex-wrap: wrap; /* Allow elements to stack */
   }
 
   .user-details,
   .matched-user {
-    width: 100%;
+    width: 100%; /* Expand to full width */
     margin-bottom: 20px;
   }
 
@@ -154,7 +157,7 @@ p strong {
   }
 
   p {
-    font-size: 1rem; /* Reduce font size for better readability */
+    font-size: 1rem; /* Adjust text size for smaller devices */
   }
 
   .profile-image {
@@ -163,7 +166,7 @@ p strong {
   }
 
   .love-card {
-    flex-direction: column; /* Stack details vertically */
+    flex-direction: column; /* Stack cards vertically */
     align-items: center;
   }
 
@@ -176,27 +179,45 @@ p strong {
 /* Mobile Phones */
 @media (max-width: 480px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   p {
-    font-size: 0.9rem; /* Adjust text size for smaller screens */
+    font-size: 0.7rem; /* Adjust text size for smaller screens */
   }
 
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 30px;
+    height: 30px;
   }
 
   .love-card {
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center;
+    display: flex;
+    flex-direction: row;
     width: 100%;
   }
 
-  .user-details,
-  .matched-user {
-    width: 90%;
+  .user-details{
+    height: 40%;
+    width: 50%;
     margin-bottom: 15px;
+  }
+  .matched-user {
+    width: 50%;
+  }
+  .user-details h2,
+  .matched-user h2{
+    font-size: 0.8rem;
+  }
+  .matched-user .profile-image{
+    width: 50px;
+    height: 50px;
+  }
+  .user-details .profile-image{
+    width: 50px;
+    height: 50px;
+  }
+  .love-card-container {
+    padding: 40px; /* Ensure proper spacing */
   }
 }

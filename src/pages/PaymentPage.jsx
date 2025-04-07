@@ -1,40 +1,55 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PaymentPage.css";
-import logo from "../assets/logo.jpg"
-import paymentVideo from "../assets/payment-background.mp4"
+import logo from "../assets/logo.jpg";
+import paymentVideo from "../assets/payment-background.mp4";
 
 const PaymentPage = ({ userDetails }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(null);
+
+  const showAlert = (message) => {
+    setAlertMessage(message);
+    setTimeout(() => setAlertMessage(null), 3000); // Hide alert after 3 seconds
+  };
 
   const handlePayment = () => {
-    setIsLoading(true); // Show spinner while initializing Razorpay
+    setIsLoading(true);
 
     const options = {
       key: "rzp_live_URSNEAcY2B1yTk", // Replace with your Razorpay API key
-      amount: 900, // ₹1 in paise (special offer)
+      amount: 100,
       currency: "INR",
       name: "Karma IT Solutions",
       description: "Love Match Payment",
-      image: logo, // Replace with your logo URL
+      image: logo,
       handler: function (response) {
         setIsLoading(false);
-        console.log("Payment Response: ", response); // Logs payment details for debugging
-        alert("Payment Successful! 🎉");
-        navigate("/love-card"); // Redirect to LoveCard page
+        console.log("Payment Response: ", response);
+        showAlert("Payment Successful! 🎉");
+      
+        // Fallback navigation
+        try {
+          navigate("/love-card");
+        } catch (error) {
+          console.error("Navigation failed, redirecting manually", error);
+          window.location.href = "/love-card";
+        }
       },
+      
+      
       prefill: {
-        name: userDetails?.name || "User", // Prefill with user's name
-        email: "user@example.com", // Replace with user's email
+        name: userDetails?.name || "User",
+        email: "user@example.com",
       },
       theme: {
-        color: "#FF758C", // Customize Razorpay modal theme color
+        color: "#FF758C",
       },
       modal: {
         ondismiss: function () {
-          setIsLoading(false); // Stop spinner if modal is dismissed
-          alert("Payment was cancelled. Please try again.");
+          setIsLoading(false);
+          showAlert("Payment was cancelled. Please try again.");
         },
       },
     };
@@ -45,13 +60,13 @@ const PaymentPage = ({ userDetails }) => {
     razorpay.on("payment.failed", function (response) {
       setIsLoading(false);
       console.error("Payment Failed: ", response.error);
-      alert("Payment failed. Please try again.");
+      showAlert("Payment failed. Please try again.");
     });
   };
 
   return (
     <div className="payment-page">
-              <video autoPlay loop muted>
+      <video autoPlay loop muted>
         <source src={paymentVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -64,6 +79,9 @@ const PaymentPage = ({ userDetails }) => {
       </button>
 
       {isLoading && <div className="spinner"></div>}
+
+      {/* Stylish Alert */}
+      {alertMessage && <div className="alert">{alertMessage}</div>}
     </div>
   );
 };

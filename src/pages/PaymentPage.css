@@ -12,6 +12,38 @@
   font-family: "Poppins", sans-serif;
   overflow: hidden; /* Ensure no overflow outside the viewport */
 }
+.alert {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #ff758c, #f99aa8); /* Matching gradient */
+  color: #fff; /* White text for contrast */
+  padding: 20px 40px; /* Consistent with your design */
+  font-size: 1.2rem; /* Fit with text size in your page */
+  font-weight: bold; /* Stand out */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(255, 117, 140, 0.5); /* Glow effect */
+  z-index: 1000; /* Ensure alert is above all elements */
+  text-align: center;
+  animation: fadeInOut 3s ease-in-out; /* Smooth appearance/disappearance */
+}
+
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+}
 
 /* Background Video Layer */
 .payment-page video {

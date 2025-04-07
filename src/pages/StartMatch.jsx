@@ -46,12 +46,10 @@ const StartMatch = ({ setUserDetails }) => {
         <source src={SmartMatchVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-
-      <h1>Start Your Match</h1>
       <form className="start-match-form" onSubmit={(e) => e.preventDefault()}>
-        <label>Upload Your Image:</label>
-        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <label>We Want Your Details For Perfect Match</label>
         {image && <img src={image} alt="Preview" className="image-preview" />}
+        <input type="file" accept="image/*" onChange={handleFileChange} />
         <input
           type="text"
           placeholder="Enter Your Name"

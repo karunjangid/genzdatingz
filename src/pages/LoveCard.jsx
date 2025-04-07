@@ -21,6 +21,7 @@ import Boy7 from "../assets/Boy7.png"
 import Boy8 from "../assets/Boy8.png"
 import Boy9 from "../assets/Boy9.png"
 import Boy10 from "../assets/Boy10.png"
+import lovebackground from "../assets/love-background.mp4"
 
 const LoveCard = ({ userDetails }) => {
   const [loading, setLoading] = useState(true);
@@ -87,6 +88,10 @@ const LoveCard = ({ userDetails }) => {
 
   return (
     <div className="love-card-container">
+            <video autoPlay loop muted>
+        <source src={lovebackground} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <h1>🌹 Your Love Connection 🌹</h1>
       <div className="love-card">
         {/* User Details */}

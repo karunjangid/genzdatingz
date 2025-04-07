@@ -4,13 +4,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;  
+  min-height: 100vh;
   height: auto;
   position: relative; /* For layering */
   color: #fff;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  overflow: auto;
+  overflow: auto; /* Enable scrolling for small screens */
+  padding: 20px; /* Padding to ensure content fits well */
+  box-sizing: border-box; /* Include padding in width/height calculations */
 }
 
 /* Background Video Styling */
@@ -41,11 +43,12 @@ h1 {
   align-items: center;
   width: 90%;
   max-width: 500px;
-  padding: 20px;
+  padding: 60px;
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.6); /* Transparent black background for contrast */
   box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
   z-index: 1; /* Ensure it stays above the video */
+  max-height: 80vh; /* Prevent form from exceeding screen height */
 }
 
 /* Labels and Inputs */
@@ -59,7 +62,7 @@ label {
 
 input,
 select {
-  width: 70%; /* Adjusted to take full width inside the form */
+  width: 100%; /* Adjusted to take full width */
   margin: 5px 0;
   padding: 12px;
   border: 2px solid rgba(255, 105, 180, 0.7);
@@ -111,34 +114,16 @@ select:focus {
 /* Responsive Design */
 
 /* Large Tablets and Desktops */
-@media (max-width: 1024px) {
-  h1 {
-    font-size: 2.8rem;
-  }
 
-  .start-match-form {
-    width: 80%;
-  }
-
-  .image-preview {
-    width: 110px;
-    height: 110px;
-  }
-
-  .submit-button {
-    font-size: 1.1rem;
-  }
-}
-
-/* Small Tablets */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .start-match-form {
-    width: 50%;
-    height: 50%;
+    width: 90%;
+    padding: 15px;
+    max-height: none; /* Allow scrollability on smaller screens */
   }
 
   .image-preview {
@@ -154,17 +139,45 @@ select:focus {
 
 /* Mobile Phones */
 @media (max-width: 480px) {
+  .start-match-page {
+    padding: 20px; /* Ensure content fits well on small screens */
+  }
+
   h1 {
-    font-size: 2rem;
+    font-size:0.8rem;
   }
 
   .start-match-form {
-    padding: 15px;
+    height: 100%;
+    width: 70%;
+    padding: 10px 30px 30px 30px;
+    margin-bottom: 30px;
   }
-
+  .start-match-form label{
+    font-size: 0.6rem; /* Slightly larger font for emphasis */
+    font-weight: 600; /* Semi-bold text for a modern look */
+    font-family: "Poppins", sans-serif; /* Professional and clean font */
+    color: #FF758C; /* Soft pink tone for a warm and inviting feel */
+    text-align: center; /* Center the text */
+    margin-bottom: 10px; /* Space below the label */
+    display: block; /* Ensure proper spacing in layouts */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    letter-spacing: 1px; /* Slightly spaced-out letters for elegance */
+    transition: transform 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+  }
+  .start-match-form label:hover {
+    color: #F99AA8; /* Brighter pink on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  .start-match-form input{
+    font-size: 0.8rem;
+    height: 10px;
+    width: 100%;
+    margin: 2%;
+  }
   .image-preview {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
   }
 
   .submit-button {
