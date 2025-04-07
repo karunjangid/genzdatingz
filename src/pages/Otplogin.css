@@ -1,0 +1,52 @@
+.otp-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(90deg, #FF6F61, #61A4FF);
+    height: 100vh;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px white, 0 0 30px #FF6F61, 0 0 40px #61A4FF;
+    margin-bottom: 20px;
+  }
+  
+  .otp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .otp-input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 0 10px #61A4FF;
+  }
+  
+  .otp-button {
+    padding: 12px;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(90deg, #FF6F61, #61A4FF);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .otp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 111, 97, 0.8), 0 0 20px rgba(97, 164, 255, 0.8);
+  }
+  

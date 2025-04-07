@@ -1,0 +1,33 @@
+.edit-profile-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input-field {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .save-button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-button:hover {
+    background-color: #45a049;
+  }
+  

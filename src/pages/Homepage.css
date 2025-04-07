@@ -1,0 +1,165 @@
+/* General Container Styling */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative; /* Layering for the video and content */
+  color: #fff; /* White text for readability */
+  font-family: "Poppins", sans-serif;
+  overflow: hidden; /* Hide any overflow outside viewport */
+  text-align: center;
+}
+
+/* Background Video Styling */
+.homepage-container video {
+  position: absolute; /* Position the video absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Ensures the video fills the entire viewport without distortion */
+  z-index: 1; /* Send the video behind all other elements */
+}
+
+/* Overlay Content Styling */
+.home-overlay-content {
+  position: relative; /* Layer content above the video */
+  z-index: 1; /* Keeps content above the background video */
+  padding: 20px;
+  width: 90%; /* Ensure responsiveness */
+  max-width: 1200px; /* Cap the width on large screens */
+}
+
+/* Title Styling */
+.homepage-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 1); /* Neon glow effect */
+  animation: typing 3s steps(30, end), blink 0.5s step-end disapper; /* Typing and blinking effect */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: white;
+  }
+}
+
+/* Subtitle Styling */
+.homepage-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  opacity: 0.9; /* Slightly transparent for elegance */
+  animation: fadeIn 2s ease-in-out; /* Smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  margin-top: 30px;
+}
+
+/* Buttons Styling */
+.homepage-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 182, 193, 1), rgba(255, 105, 180, 1)); /* Gradient background */
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.homepage-button:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 0 30px rgba(255, 105, 180, 1); /* Glow on hover */
+}
+
+/* Specific Button Styles */
+.register-button {
+  background: linear-gradient(135deg, rgba(105, 182, 255, 1), rgba(105, 150, 255, 1)); /* Blue gradient for register */
+}
+
+.start-match-button {
+  background: linear-gradient(135deg, rgba(255, 150, 105, 1), rgba(255, 105, 50, 1)); /* Orange gradient for start match */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .homepage-title {
+    font-size: 3.5rem;
+  }
+
+  .homepage-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .button-container {
+    gap: 15px; /* Reduce space between buttons */
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-title {
+    font-size: 2rem;
+  }
+
+  .homepage-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .homepage-button {
+    font-size: 1rem;
+    padding: 12px 20px; /* Smaller padding for small screens */
+  }
+
+  .button-container {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Reduce gap for compact layout */
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-title {
+    font-size: 1rem; /* Smaller title for very small screens */
+  }
+
+  .homepage-subtitle {
+    font-size: 1rem;
+  }
+
+  .homepage-button {
+    font-size: 0.9rem; /* Compact button text */
+    padding: 10px 15px; /* Compact button size */
+  }
+}

@@ -1,0 +1,185 @@
+:root {
+    --primary-color: #FF6F61; /* Vibrant orange-red */
+    --primary-hover: #E65C55; /* Darker shade for hover */
+    --secondary-color: #61A4FF; /* Cool blue */
+    --secondary-hover: #508CDB; /* Darker blue for hover */
+    --background-overlay: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    --text-color: #ffffff; /* Bright white */
+    --input-background: rgba(255, 255, 255, 0.1); /* Frosted effect */
+    --input-focus-shadow: rgba(255, 111, 97, 0.5); /* Glowing border for focus */
+    --button-shadow: rgba(255, 111, 97, 0.4); /* Subtle button shadow */
+    --button-hover-shadow: rgba(255, 111, 97, 0.8); /* Button glow on hover */
+    --google-button: #4285F4; /* Google button color */
+    --google-hover: #357AE8; /* Google button hover color */
+  }
+  
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Dark background for futuristic look */
+    color: var(--text-color);
+    overflow: hidden;
+  }
+  
+  .page-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  
+  .overlay-content {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    width: 90%;
+    padding: 30px;
+    background: var(--background-overlay);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    text-shadow: 0 4px 15px var(--primary-hover);
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-input {
+    width: 80%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background: var(--input-background);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--input-focus-shadow);
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 10px var(--button-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px var(--button-hover-shadow);
+  }
+  
+  .google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    background: var(--google-button);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(66, 133, 244, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .google-button:hover {
+    background: var(--google-hover);
+    transform: scale(1.05);
+  }
+  
+  .google-icon {
+    width: 20px;
+    margin-right: 10px;
+  }
+  
+  .reset-button {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .reset-button:hover {
+    color: var(--secondary-hover);
+  }
+  
+  .otp-button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    border: none;
+    border-radius: 25px;
+    background: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(97, 164, 255, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .otp-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(97, 164, 255, 0.7);
+  }
+  
+  @media (max-width: 768px) {
+    .overlay-content {
+      padding: 20px;
+    }
+  
+    .page-title {
+      font-size: 2rem;
+    }
+  
+    .form-input, .form-button, .google-button, .otp-button {
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+  

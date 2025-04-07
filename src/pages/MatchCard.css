@@ -1,0 +1,106 @@
+/* General Page Styling */
+.match-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e1e2e, #252545); /* Gradient background */
+    color: #f0f0f0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #00FFC6;
+    text-shadow: 0 0 15px #00FFC6, 0 0 30px #00D4FF;
+    margin-bottom: 30px;
+  }
+  
+  /* User and Match Data Containers */
+  .user-data, .matched-account {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #00FFC6;
+    background: rgba(30, 30, 46, 0.9); /* Semi-transparent background */
+    box-shadow: 0 0 10px #00FFC6, 0 0 20px #00D4FF;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00FFC6;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #00FFC6, 0 0 20px #00D4FF;
+    text-align: center;
+  }
+  
+  /* Profile Images */
+  img.profile-image {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 15px auto;
+    border: 3px solid #00FFC6; /* Neon border */
+    box-shadow: 0 0 15px #00FFC6, 0 0 30px #00D4FF;
+  }
+  
+  /* Details Styling */
+  p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: center;
+    color: #f0f0f0;
+  }
+  
+  p strong {
+    color: #F0E68C; /* Accent color for labels */
+  }
+  
+  /* Loading Message */
+  .loading-message {
+    font-size: 1.5rem;
+    color: #00FFC6;
+    animation: glow 1.5s infinite alternate;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Glow Animation */
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 15px #00FFC6, 0 0 30px #00D4FF;
+    }
+    to {
+      text-shadow: 0 0 25px #00FFC6, 0 0 45px #00D4FF;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .user-data, .matched-account {
+      width: 95%;
+      padding: 10px;
+    }
+  
+    img.profile-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  }
+  

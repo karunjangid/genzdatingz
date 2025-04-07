@@ -1,0 +1,41 @@
+.user-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .user-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .user-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .user-bio {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .connect-button {
+    background-color: #FF6F61;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .connect-button:hover {
+    background-color: #E65C55;
+  }
+  

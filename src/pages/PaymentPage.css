@@ -1,0 +1,111 @@
+/* General Page Styling */
+.payment-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative; /* For proper layering */
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden; /* Ensure no overflow outside the viewport */
+}
+
+/* Background Video Layer */
+.payment-page video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover entire viewport without distortion */
+  z-index: 1; /* Send it behind all other elements */
+  opacity: 0.75; /* Slight transparency for contrast */
+}
+
+/* Heading Styling */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+  z-index: 1; /* Keeps the heading above the video */
+}
+
+/* Price Information */
+.payment-page p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: 500;
+  z-index: 1;
+  color: #f8f9fa; /* Slightly off-white for better visibility */
+}
+
+/* Pay Button */
+.pay-button {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff758c, #f99aa8); /* Gradient for modern style */
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 117, 140, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.pay-button:disabled {
+  background: #aaa; /* Disabled state */
+  cursor: not-allowed;
+}
+
+.pay-button:hover:not(:disabled) {
+  transform: scale(1.1); /* Hover effect to make button pop */
+  box-shadow: 0 0 30px rgba(255, 117, 140, 0.8);
+}
+
+/* Spinner */
+.spinner {
+  margin-top: 20px;
+  border: 4px solid #fff;
+  border-top: 4px solid #ff758c; /* Match spinner color to theme */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .payment-page p {
+    font-size: 1rem;
+  }
+
+  .pay-button {
+    font-size: 1.2rem;
+    padding: 12px 20px;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+  }
+}

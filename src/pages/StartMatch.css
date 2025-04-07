@@ -1,0 +1,174 @@
+/* General Page Styling */
+.start-match-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;  
+  height: auto;
+  position: relative; /* For layering */
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  overflow: auto;
+}
+
+/* Background Video Styling */
+.start-match-page video {
+  position: fixed; /* Ensure it's behind all other elements */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make sure the video covers the viewport */
+  z-index: 0; /* Send it behind the content */
+}
+
+/* Heading Styling */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 1);
+  margin-bottom: 20px;
+  z-index: 1; /* Ensure it stays above the video */
+}
+
+/* Form Styling */
+.start-match-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6); /* Transparent black background for contrast */
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+  z-index: 1; /* Ensure it stays above the video */
+}
+
+/* Labels and Inputs */
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input,
+select {
+  width: 70%; /* Adjusted to take full width inside the form */
+  margin: 5px 0;
+  padding: 12px;
+  border: 2px solid rgba(255, 105, 180, 0.7);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  color: #d90ead;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: rgba(255, 105, 180, 1);
+}
+
+/* Image Preview Styling */
+.image-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 10px auto;
+  border: 3px solid rgba(255, 105, 180, 0.8);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+  display: block;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(255, 182, 193, 1), rgba(255, 105, 180, 1));
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 105, 180, 1);
+}
+
+/* Responsive Design */
+
+/* Large Tablets and Desktops */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .start-match-form {
+    width: 80%;
+  }
+
+  .image-preview {
+    width: 110px;
+    height: 110px;
+  }
+
+  .submit-button {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Tablets */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .start-match-form {
+    width: 50%;
+    height: 50%;
+  }
+
+  .image-preview {
+    width: 100px;
+    height: 100px;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .start-match-form {
+    padding: 15px;
+  }
+
+  .image-preview {
+    width: 80px;
+    height: 80px;
+  }
+
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

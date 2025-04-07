@@ -1,0 +1,158 @@
+:root {
+  --primary-color: #FF6F61;
+  --primary-hover: #E65C55;
+  --secondary-color: #61A4FF;
+  --secondary-hover: #508CDB;
+  --text-color: #fff;
+  --input-background: rgba(255, 255, 255, 0.1);
+  --input-focus-shadow: rgba(255, 111, 97, 0.5);
+  --button-shadow: rgba(255, 111, 97, 0.4);
+  --button-hover-shadow: rgba(255, 111, 97, 0.8);
+  --google-button: #4285F4;
+  --google-hover: #357AE8;
+}
+
+.page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.overlay-container {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-shadow: 0 4px 15px var(--primary-hover);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background: var(--input-background);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px var(--input-focus-shadow);
+}
+
+.form-button, .otp-button, .google-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-button {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 4px 10px var(--button-shadow);
+}
+
+.form-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px var(--button-hover-shadow);
+}
+
+.otp-button {
+  background: var(--secondary-color);
+  box-shadow: 0 4px 10px rgba(97, 164, 255, 0.5);
+}
+
+.otp-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(97, 164, 255, 0.7);
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--google-button);
+  box-shadow: 0 4px 10px rgba(66, 133, 244, 0.5);
+}
+
+.google-button:hover {
+  background: var(--google-hover);
+  transform: scale(1.05);
+}
+
+.google-icon {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.reset-button {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.reset-button:hover {
+  color: var(--secondary-hover);
+}
+
+@media (max-width: 768px) {
+  .overlay-container {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .form-input, .form-button, .otp-button, .google-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
