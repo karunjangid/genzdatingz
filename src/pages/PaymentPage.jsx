@@ -19,9 +19,9 @@ const PaymentPage = ({ userDetails }) => {
 
     const options = {
       key: "rzp_live_URSNEAcY2B1yTk", // Replace with your Razorpay API key
-      amount: 100,
+      amount: 900,
       currency: "INR",
-      name: "Karma IT Solutions",
+      name: "Gen - Z Datingz",
       description: "Love Match Payment",
       image: logo,
       handler: function (response) {
