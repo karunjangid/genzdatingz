@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../firebaseConfig'; // Import Firebase Auth instance
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import './OtpLogin.css';
+import './Otplogin.css';
 
 const OTPLogin = () => {
   const [phone, setPhone] = useState('');
