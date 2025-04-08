@@ -19,7 +19,7 @@ const PaymentPage = ({ userDetails }) => {
 
     const options = {
       key: "rzp_live_URSNEAcY2B1yTk", // Replace with your Razorpay API key
-      amount: 900,
+      amount: 9900,
       currency: "INR",
       name: "Gen - Z Datingz",
       description: "Love Match Payment",
@@ -73,9 +73,9 @@ const PaymentPage = ({ userDetails }) => {
 
       <h1>Complete Your Payment</h1>
       <p>Original Price: ₹499/-</p>
-      <p>Discounted Price: ₹9/- (Limited Time Offer!)</p>
+      <p>Discounted Price: ₹99/- (Limited Time Offer!)</p>
       <button onClick={handlePayment} className="pay-button" disabled={isLoading}>
-        {isLoading ? "Processing..." : "Pay ₹9/-"}
+        {isLoading ? "Processing..." : "Pay ₹99/-"}
       </button>
 
       {isLoading && <div className="spinner"></div>}

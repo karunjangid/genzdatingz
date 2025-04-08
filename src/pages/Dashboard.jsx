@@ -26,13 +26,10 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <div className="video-background">
-        <video autoPlay loop muted>
+        <video autoPlay loop muted className='video'>
           <source src={videoBackground} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
-
       <nav className="navbar">
   <div className="logo-container">
     <img src={profileIcon} alt="Gen-Z Datingz Logo" className="logo" />
@@ -61,7 +58,9 @@ const Dashboard = () => {
   <h1 className="welcome-title">
     Welcome, <span className="username">{username || 'User'}</span>!
   </h1>
-  <p className="welcome-subtitle">Let’s explore your matches and make meaningful connections.</p>
+  <p className="welcome-subtitle">Let’s explore your matches and make meaningful connections
+              <a href="/start-match" className="homepage-button start-match-button neon-hover">Start Match</a>
+  </p>
 </div>
 
       {/* Matches Section */}
@@ -71,7 +70,7 @@ const Dashboard = () => {
     {matches.map((match) => (
       <div key={match.id} className="match-card">
         <div className="match-overlay">
-          <img src={match.profilePicture} alt={match.name} className="match-image" />
+          <img src={match.profileImage} alt={match.name} className="match-image" />
           <h3 className="match-name">{match.name}</h3>
           <p className="match-bio">{match.bio || 'Let’s make a connection!'}</p>
           <button className="connect-button">Connect</button>

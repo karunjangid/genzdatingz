@@ -36,7 +36,7 @@ const StartMatch = ({ setUserDetails }) => {
       instagram,
     });
 
-    navigate("/payment"); // Redirect to PaymentPage
+    navigate("/payment");
   };
 
   return (

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getMatches } from "../api";
 import "./LoveCard.css";
+import lovebackground from "../assets/love-background.mp4"
 import Girl1 from "../assets/Girl1.png"
 import Girl2 from "../assets/Girl2.png"
 import Girl3 from "../assets/Girl3.png"
@@ -21,7 +23,6 @@ import Boy7 from "../assets/Boy7.png"
 import Boy8 from "../assets/Boy8.png"
 import Boy9 from "../assets/Boy9.png"
 import Boy10 from "../assets/Boy10.png"
-import lovebackground from "../assets/love-background.mp4"
 
 const LoveCard = ({ userDetails }) => {
   const [loading, setLoading] = useState(true);
@@ -39,37 +40,31 @@ const LoveCard = ({ userDetails }) => {
     setTimeout(() => {
       setLoading(false);
 
-      // Expanded partner profiles (10 boys and 10 girls)
-      const boysProfiles = [
-        { name: "Aarav", age: 26, instagram: "@aarav_love", profileImage: Boy1 },
-        { name: "Karan", age: 28, instagram: "@karan_vibes", profileImage: Boy2 },
-        { name: "Rohan", age: 24, instagram: "@rohan_hunk", profileImage: Boy3 },
-        { name: "Aditya", age: 23, instagram: "@aditya_charm", profileImage: Boy4 },
-        { name: "Virat", age: 27, instagram: "@virat_stylish", profileImage: Boy5 },
-        { name: "Arjun", age: 25, instagram: "@arjun_hero", profileImage: Boy6 },
-        { name: "Kabir", age: 26, instagram: "@kabir_vibes", profileImage: Boy7 },
-        { name: "Rahul", age: 24, instagram: "@rahul_rockstar", profileImage:Boy8  },
-        { name: "Siddharth", age: 23, instagram: "@siddharth_lover", profileImage:Boy9 },
-        { name: "Raj", age: 22, instagram: "@raj_cool", profileImage: Boy10 },
-      ];
-
-      const girlsProfiles = [
-        { name: "Emily", age: 24, instagram: "@emily_vibes", profileImage: Girl1 },
-        { name: "Sophia", age: 25, instagram: "@sophia_dreams", profileImage: Girl2 },
-        { name: "Olivia", age: 23, instagram: "@olivia_star", profileImage: Girl3 },
-        { name: "Isabella", age: 24, instagram: "@isabella_grace", profileImage: Girl4 },
-        { name: "Mia", age: 22, instagram: "@mia_darling", profileImage: Girl5 },
-        { name: "Zara", age: 25, instagram: "@zara_sassy", profileImage: Girl6 },
-        { name: "Ava", age: 23, instagram: "@ava_glow", profileImage: Girl7 },
-        { name: "Lily", age: 26, instagram: "@lily_flower", profileImage: Girl8 },
-        { name: "Ella", age: 22, instagram: "@ella_sparkles", profileImage: Girl9 },
-        { name: "Scarlett", age: 24, instagram: "@scarlett_fierce", profileImage: Girl10 },
-      ];
-
-      // Randomly select a match based on user preferences
-      const matches = userDetails.interestedIn === "Boys" ? boysProfiles : girlsProfiles;
-      const randomMatch = matches[Math.floor(Math.random() * matches.length)];
-      setMatchedUser(randomMatch);
+      // Get matches from API
+      const matches = getMatches(userDetails.interestedIn);
+      
+      // Filter out current user from potential matches
+      const filteredMatches = matches.filter(match => 
+        match.instagram !== userDetails.instagram
+      );
+      if (filteredMatches.length > 0) {
+        const randomMatch = filteredMatches[Math.floor(Math.random() * filteredMatches.length)];
+        setMatchedUser(randomMatch);
+      } else {
+        // Fallback to default matches if no filtered matches available
+        const defaultMatches = getMatches(userDetails.interestedIn);
+        if (defaultMatches.length > 0) {
+          setMatchedUser(defaultMatches[Math.floor(Math.random() * defaultMatches.length)]);
+        } else {
+          // If still no matches, show a message
+          setMatchedUser({
+            name: "No matches found",
+            age: "",
+            instagram: "",
+            profileImage: ""
+          });
+        }
+      }
     }, 3000); // Simulate a 3-second delay
   }, [userDetails, navigate]);
 
@@ -108,7 +103,29 @@ const LoveCard = ({ userDetails }) => {
         {matchedUser && (
           <div className="matched-user">
             <h2>Your Match</h2>
-            <img src={matchedUser.profileImage} alt="Matched Profile" className="profile-image" />
+            <img src={
+              matchedUser.profileImage === "Boy1" ? Boy1 :
+              matchedUser.profileImage === "Boy2" ? Boy2 :
+              matchedUser.profileImage === "Boy3" ? Boy3 :
+              matchedUser.profileImage === "Boy4" ? Boy4 :
+              matchedUser.profileImage === "Boy5" ? Boy5 :
+              matchedUser.profileImage === "Boy6" ? Boy6 :
+              matchedUser.profileImage === "Boy7" ? Boy7 :
+              matchedUser.profileImage === "Boy8" ? Boy8 :
+              matchedUser.profileImage === "Boy9" ? Boy9 :
+              matchedUser.profileImage === "Boy10" ? Boy10 :
+              matchedUser.profileImage === "Girl1" ? Girl1 :
+              matchedUser.profileImage === "Girl2" ? Girl2 :
+              matchedUser.profileImage === "Girl3" ? Girl3 :
+              matchedUser.profileImage === "Girl4" ? Girl4 :
+              matchedUser.profileImage === "Girl5" ? Girl5 :
+              matchedUser.profileImage === "Girl6" ? Girl6 :
+              matchedUser.profileImage === "Girl7" ? Girl7 :
+              matchedUser.profileImage === "Girl8" ? Girl8 :
+              matchedUser.profileImage === "Girl9" ? Girl9 :
+              matchedUser.profileImage === "Girl10" ? Girl10 :
+              matchedUser.image
+            } alt="Matched Profile" className="profile-image" />
             <p><strong>Name:</strong> {matchedUser.name}</p>
             <p><strong>Age:</strong> {matchedUser.age}</p>
             <p><strong>Instagram:</strong> {matchedUser.instagram}</p>
